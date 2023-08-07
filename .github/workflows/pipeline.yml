@@ -36,13 +36,3 @@ jobs:
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          
-  on_merge:
-    runs-on: ubuntu-20.04
-    if: ${{ github.event_name == 'push' }}
-    steps:
-    - uses: superfly/flyctl-actions/setup-flyctl@master
-    - name: Deploy app
-      run: flyctl deploy --remote-only
-      env:
-        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
